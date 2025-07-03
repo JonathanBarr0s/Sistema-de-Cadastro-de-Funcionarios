@@ -52,14 +52,13 @@
 
 ### Seção 04: Criando tabelas no banco de dados SQL
 
-<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19095898#learning-tools">**Link da Aula**</a>
-
-<a>
 
 <details>
     <summary><strong> Entity Framework, criação de tabelas</strong></summary>
     <br />
     <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19095898#learning-tools">**Link da Aula**</a>
 
 ### 📁 1. **Preparação do Projeto**
 

@@ -142,3 +142,70 @@
 * Deletou a parte “dummy” do conteúdo inicial (`Full HTML page`) e substituiu por `Minha Página Inicial`.
 
 </details>
+
+### Seção 07: Tela de cadastro
+
+<details>
+    <summary><strong>Criando a tela de cadastro no WebForms</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19097758#learning-tools">**Link da Aula**</a>
+
+### 🧱 1. **Criação da Página .aspx**
+
+* Criou uma **pasta chamada `Paginas`** no Gerenciador de Soluções.
+* Adicionou um **novo item** do tipo "Web Forms com Master Page".
+* Nome da página: `Cadastro.aspx`.
+* Vinculou à master page (`Site.Master`).
+
+### 🎨 2. **Inserção de Formulário do Template HTML**
+
+* Abriu uma página HTML do layout para copiar um **formulário pronto**.
+* Inspecionou o elemento no **Chrome (F12 > Inspecionar)** e localizou a `div` com o formulário.
+* Clicou com o botão direito → `Editar como HTML` → **Copiou o código do formulário**.
+
+### 🧩 3. **Colagem do Formulário na Página ASPX**
+
+* Colou o HTML copiado dentro da `<asp:Content>` do `Cadastro.aspx`.
+* Ajustou os caminhos dos arquivos CSS e JS:
+
+  * Adicionou **uma barra `/` no início dos caminhos**, por exemplo:
+    `/css/style.css`, `/lib/jquery.min.js`, etc.
+
+### ⚙️ 4. **Conversão dos Campos HTML para Controles Web Forms**
+
+* Substituiu todos os `<input type="text">` por `<asp:TextBox>`:
+
+  * Exemplo:
+
+    ```aspx
+    <asp:TextBox ID="txtNome" runat="server" CssClass="form-control" />
+    ```
+* Cada campo do banco de dados foi representado por um `TextBox`:
+
+  * Nome → `txtNome`
+  * Sobrenome → `txtSobrenome`
+  * Email → `txtEmail`
+  * Endereço, Bairro, Cidade, Estado
+  * ID do Departamento (ainda não relacionado, mas campo adicionado)
+
+### 🧼 5. **Limpeza do HTML Desnecessário**
+
+* Removeu os campos antigos HTML (`<input>`) depois de substituí-los.
+* Garantiu que todos os `TextBox` e o `Form` estivessem dentro de uma `form runat="server"`:
+
+  ```aspx
+  <form id="form1" runat="server">
+    ...
+  </form>
+  ```
+
+### 💡 Dica Importante:
+
+> A diferença entre Web Forms e MVC começa a ficar clara:
+>
+> * No Web Forms: você precisa usar `runat="server"` e controles do tipo `asp:TextBox`, `asp:Button`, etc.
+> * No MVC: tudo é feito com HTML puro + Razor e o controle fica todo no Controller.
+
+</details>

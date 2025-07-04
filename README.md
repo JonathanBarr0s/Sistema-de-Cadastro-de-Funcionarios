@@ -109,7 +109,7 @@
 
 <a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19097262#learning-tools">**Link da Aula**</a>
 
-### 🧰 2. **Estrutura de Pastas do Projeto**
+### 🧰 1. **Estrutura de Pastas do Projeto**
 
 * Pastas padrão do projeto:
 
@@ -117,7 +117,7 @@
   * `Content`: arquivos CSS.
   * `Site.Master`: estrutura base compartilhada entre as páginas.
 
-### 📦 3. **Importação dos Arquivos do Template**
+### 📦 2. **Importação dos Arquivos do Template**
 
 * Layout HTML gratuito foi baixado com as seguintes pastas:
 
@@ -130,12 +130,12 @@
   * Ativou a visualização de arquivos ocultos.
   * Selecionou as pastas e clicou com botão direito → **“Incluir no projeto”**.
 
-### 🧩 4. **Aplicação do Layout no `Site.Master`**
+### 🧩 3. **Aplicação do Layout no `Site.Master`**
 
 * Abriu o arquivo `index.html` do layout como referência (sem adicionar ao projeto).
 * No `Site.Master`, substituiu toda a estrutura HTML pelo código do template, mantendo **somente a div do corpo da página** (`<asp:ContentPlaceHolder>`).
 
-### 🔍 5. **Ajustes Finais no Layout**
+### 🔍 4. **Ajustes Finais no Layout**
 
 * **Inspecionou o HTML** com o navegador Chrome usando o recurso “Inspecionar Elemento” para entender melhor a estrutura.
 * Identificou o local correto para colar o conteúdo do `<body>` do template.

@@ -15,6 +15,15 @@ namespace WebApplication1.Paginas
     {
 
         /// <summary>
+        /// Controle txtResp.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtResp;
+
+        /// <summary>
         /// Controle form1.
         /// </summary>
         /// <remarks>
@@ -60,57 +69,66 @@ namespace WebApplication1.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtRg;
 
         /// <summary>
-        /// Controle TextCpf.
+        /// Controle txtCpf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextCpf;
+        protected global::System.Web.UI.WebControls.TextBox txtCpf;
 
         /// <summary>
-        /// Controle TextEndereco.
+        /// Controle txtEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextEndereco;
+        protected global::System.Web.UI.WebControls.TextBox txtEndereco;
 
         /// <summary>
-        /// Controle TextBairro.
+        /// Controle txtBairro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBairro;
+        protected global::System.Web.UI.WebControls.TextBox txtBairro;
 
         /// <summary>
-        /// Controle TextCidade.
+        /// Controle txtCidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextCidade;
+        protected global::System.Web.UI.WebControls.TextBox txtCidade;
 
         /// <summary>
-        /// Controle TextEstado.
+        /// Controle txtEstado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextEstado;
+        protected global::System.Web.UI.WebControls.TextBox txtEstado;
 
         /// <summary>
-        /// Controle TextBox1.
+        /// Controle txtDepartamento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
+
+        /// <summary>
+        /// Controle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

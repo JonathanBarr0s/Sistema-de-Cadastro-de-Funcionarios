@@ -209,3 +209,111 @@
 > * No MVC: tudo é feito com HTML puro + Razor e o controle fica todo no Controller.
 
 </details>
+
+### Seção 08: Codificando a tela de cadastro
+
+<details>
+    <summary><strong>Nesta aula vamos codificar a tela com C#</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19098146#learning-tools">**Link da Aula**</a>
+
+### 📦 1. **Relembrando a Estrutura**
+
+* O projeto já contém:
+
+  * A página `Cadastro.aspx` com os campos (`TextBox`, `Button`, etc.).
+  * A classe de modelo `Funcionarios` mapeada via Entity Framework.
+  * A instância do banco chamada `MeuBanco` (via EF).
+
+### 🧱 2. **Configurando a Lógica no Code-Behind**
+
+#### 📌 Onde colocar o código?
+
+* Na página `Cadastro.aspx.cs`, dentro do método do botão:
+
+  ```csharp
+  protected void btnCadastrar_Click(object sender, EventArgs e)
+  ```
+
+### 🔧 3. **Instanciar o Banco**
+
+#### 📍 No topo da classe (fora dos métodos):
+
+```csharp
+private MeuBanco banco;
+```
+
+#### 📍 Dentro do `Page_Load`:
+
+```csharp
+protected void Page_Load(object sender, EventArgs e)
+{
+    banco = new MeuBanco();
+}
+```
+
+### 🧍‍♂️ 4. **Criando e Preenchendo o Objeto Funcionário**
+
+```csharp
+Funcionarios func = new Funcionarios();
+func.Nome = txtNome.Text;
+func.Sobrenome = txtSobrenome.Text;
+func.Email = txtEmail.Text;
+func.RG = txtRG.Text;
+func.CPF = txtCPF.Text;
+func.Endereco = txtEndereco.Text;
+func.Bairro = txtBairro.Text;
+func.Cidade = txtCidade.Text;
+func.Estado = txtEstado.Text;
+func.IdDepartamento = Convert.ToInt32(txtDepartamento.Text);
+```
+
+> Certifique-se de que os IDs dos `TextBox` no .aspx estão corretos!
+
+---
+
+### 💾 5. **Salvar no Banco de Dados**
+
+```csharp
+banco.Funcionarios.Add(func);
+banco.SaveChanges();
+```
+
+### 🛡️ 6. **Tratamento de Erros com Try-Catch**
+
+```csharp
+try
+{
+    // Preenchimento do objeto
+    Funcionarios func = new Funcionarios();
+    func.Nome = txtNome.Text;
+    // ... (outros campos)
+
+    banco.Funcionarios.Add(func);
+    banco.SaveChanges();
+
+    lblResposta.Text = "Cadastro efetuado com sucesso!";
+}
+catch (Exception ex)
+{
+    lblResposta.Text = "Erro ao cadastrar: " + ex.Message;
+}
+```
+
+> `lblResposta` é um `Label` usado para mostrar mensagens de sucesso ou erro na tela.
+
+
+### 🧪 7. **Testando a Aplicação**
+
+* Execute o projeto.
+* Acesse a página `Cadastro.aspx`.
+* Preencha os campos.
+* Clique em **Cadastrar**.
+* Verifique a mensagem de sucesso.
+* Confirme os dados no SQL Server:
+
+  * Clique com o botão direito na tabela `Funcionarios` → **Mostrar Dados da Tabela**.
+
+</details>

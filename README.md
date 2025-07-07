@@ -324,7 +324,7 @@ catch (Exception ex)
 
 ## MVC
 
-### Seção 08: MVC com o novo layout CRM
+### Seção 09: MVC com o novo layout CRM
 
 <details>
     <summary><strong>Criando projeto MVC .Net C#</strong></summary>

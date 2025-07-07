@@ -1,5 +1,7 @@
 # Sistema-de-Cadastro-de-Funcionarios
 
+## WebForms
+
 ### Seção 03: O banco de dados SQL Server
 
 <details>
@@ -315,5 +317,96 @@ catch (Exception ex)
 * Confirme os dados no SQL Server:
 
   * Clique com o botão direito na tabela `Funcionarios` → **Mostrar Dados da Tabela**.
+
+</details>
+
+<br>
+
+## MVC
+
+### Seção 08: MVC com o novo layout CRM
+
+<details>
+    <summary><strong>Criando projeto MVC .Net C#</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19099006#learning-tools">**Link da Aula**</a>
+
+## 🏗️ Estrutura Web Forms x MVC
+
+### 📋 Web Forms:
+
+* Cada `.aspx` possui HTML **acoplado ao C# (code-behind)**.
+* Exemplo: `Cadastro.aspx` + `Cadastro.aspx.cs`
+* Menos organizado para grandes projetos.
+
+### 🏛️ MVC (Model View Controller):
+
+* **Separação de responsabilidades**:
+
+  * **Model**: classe que representa os dados (ex: `Funcionario.cs`)
+  * **View**: apenas HTML/Razor (`.cshtml`)
+  * **Controller**: lógica de programação (`FuncionarioController.cs`)
+* Estrutura padrão:
+
+  ```
+  /Models
+  /Views
+    /Funcionario
+      Index.cshtml
+  /Controllers
+    FuncionarioController.cs
+  ```
+
+## 📦 Preparação do Projeto MVC
+
+### ✅ Etapas realizadas:
+
+1. **Criado novo projeto ASP.NET Web Application (MVC)**:
+
+   * Nome: `CadastroComDesignMVC`
+   * Tipo: `MVC`
+
+2. **Explicação da estrutura MVC**:
+
+   * Views → HTML/Razor.
+   * Controllers → lógica de acesso e retorno.
+   * Models → dados do sistema.
+
+## 🎨 Aplicando Layout no MVC
+
+### 🔄 Etapas para aplicar layout visual (o mesmo do Web Forms):
+
+1. **Copiou as pastas do template** (`css`, `js`, `lib`) para o novo projeto:
+
+   * Botão direito no projeto → **Abrir pasta no Explorer**
+   * Colou os arquivos dentro da pasta do projeto
+   * Voltou ao Visual Studio e clicou com botão direito nas pastas → **Incluir no projeto**
+
+2. **Aplicou o HTML do layout no arquivo `_Layout.cshtml`**:
+
+   * Caminho: `/Views/Shared/_Layout.cshtml`
+   * Substituiu a parte do `<body>` por `@RenderBody()` e inseriu o HTML do template.
+
+3. **Limpou a página inicial `Index.cshtml`** dentro de `/Views/Home` para começar do zero.
+
+4. **Editou o menu HTML** dentro do layout para deixar apenas a opção “Cadastro”.
+
+## ✍️ Pontos Importantes
+
+* MVC facilita o **reaproveitamento de layout** e **organização do código**.
+* A separação clara entre camadas melhora a **manutenção** e o **desempenho** do sistema.
+* O uso de layout centralizado em `_Layout.cshtml` torna fácil mudar a aparência de **todas as páginas**.
+
+## ✅ Resumo Visual da Transição
+
+| Aspecto               | Web Forms              | MVC                       |
+| --------------------- | ---------------------- | ------------------------- |
+| Organização           | Menos separada         | Alta separação de camadas |
+| Código HTML           | `.aspx`                | `.cshtml` (`Views`)       |
+| Lógica C#             | Code-behind `.aspx.cs` | Controllers               |
+| Layout compartilhado  | Master Page            | `_Layout.cshtml`          |
+| Facilidade de escalar | Baixa                  | Alta                      |
 
 </details>

@@ -410,3 +410,89 @@ catch (Exception ex)
 | Facilidade de escalar | Baixa                  | Alta                      |
 
 </details>
+
+### Seção 10: Tela de cadastro funcionários com Entity Framework no MVC C#
+
+<details>
+    <summary><strong>Cadastro de funcionários com Entity</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19099128#learning-tools">**Link da Aula**</a>
+
+### 1. **Conexão com o Banco de Dados**
+
+* Adicionou um novo **modelo de dados ADO.NET Entity Data Model**:
+
+  * Nome: `MeuBanco`
+  * Tipo: **Database First** (baseado no banco já existente).
+  * Selecionou as tabelas `Funcionarios` e `Departamentos`.
+  * EF gerou os modelos com base no banco automaticamente.
+
+### 2. **Compilação do Projeto**
+
+* Importante compilar o projeto após adicionar o modelo, para o Visual Studio reconhecer os modelos no scaffold.
+
+## 🛠️ Criando o Controller com Scaffold (CRUD Automático)
+
+### Etapas:
+
+* Botão direito na pasta `Controllers` → **Adicionar → Novo Scaffold**.
+* Tipo: `MVC Controller with views, using Entity Framework`.
+* Modelo: `Funcionario` (ou `Funcionarios`).
+* Contexto: `MeuBancoEntities`.
+* Nome do Controller: `FuncionariosController`.
+
+🔁 Isso gerou automaticamente:
+
+* `FuncionariosController.cs`
+* Views dentro de `/Views/Funcionarios`:
+
+  * `Create.cshtml`
+  * `Edit.cshtml`
+  * `Delete.cshtml`
+  * `Details.cshtml`
+  * `Index.cshtml`
+
+## 🔗 Ligando o Menu ao Controller
+
+### Dentro do menu HTML (`_Layout.cshtml`):
+
+```html
+<li><a href="/Funcionarios">Cadastro</a></li>
+```
+
+> `Funcionarios` é o nome do controller sem o "Controller" no final.
+
+## 🎨 Corrigindo o Layout Visual (CSS/JS)
+
+### Problema:
+
+Os arquivos CSS e JS não carregavam corretamente.
+
+### Solução:
+
+Usar **URLs relativas com `~/`**, ex:
+
+```html
+<link rel="stylesheet" href="~/css/style.css" />
+<script src="~/js/script.js"></script>
+```
+
+> Em Razor (`.cshtml`), usar `@Url.Content("~/caminho")` ou `asp-append-version="true"` se usar Tag Helpers.
+
+---
+
+## ✅ Funcionalidades já disponíveis
+
+Sem programar uma linha, o MVC criou as telas com as funções abaixo:
+
+| Função   | URL                       | Descrição                        |
+| -------- | ------------------------- | -------------------------------- |
+| Listar   | `/Funcionarios`           | Lista todos os funcionários      |
+| Criar    | `/Funcionarios/Create`    | Formulário para adicionar novo   |
+| Editar   | `/Funcionarios/Edit/1`    | Editar funcionário com ID 1      |
+| Detalhes | `/Funcionarios/Details/1` | Detalhes do funcionário com ID 1 |
+| Excluir  | `/Funcionarios/Delete/1`  | Tela para confirmar a exclusão   |
+
+</details>

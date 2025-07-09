@@ -10,111 +10,107 @@ using Cadastro_MVC;
 
 namespace Cadastro_MVC.Controllers
 {
-    public class FuncionariosController : Controller
+    public class DepartamentosController : Controller
     {
         private MeuBanco01 db = new MeuBanco01();
 
-        // GET: Funcionarios
+        // GET: Departamentos
         public ActionResult Index()
         {
-            return View(db.Funcionarios.ToList());
+            return View(db.Departamento.ToList());
         }
 
-        // GET: Funcionarios/Details/5
+        // GET: Departamentos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Funcionarios funcionarios = db.Funcionarios.Find(id);
-            if (funcionarios == null)
+            Departamento departamento = db.Departamento.Find(id);
+            if (departamento == null)
             {
                 return HttpNotFound();
             }
-            return View(funcionarios);
+            return View(departamento);
         }
 
-        // GET: Funcionarios/Create
+        // GET: Departamentos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Funcionarios/Create
+        // POST: Departamentos/Create
         // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Func,Nome,Sobrenome,Email,RG,CPF,Endereco,Bairro,Cidade,UF,Departamento")] Funcionarios funcionarios)
+        public ActionResult Create([Bind(Include = "Id,Nome,Descricao")] Departamento departamento)
         {
             if (ModelState.IsValid)
             {
-                db.Funcionarios.Add(funcionarios);
+                db.Departamento.Add(departamento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(funcionarios);
+            return View(departamento);
         }
 
-        // GET: Funcionarios/Edit/5
+        // GET: Departamentos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            Funcionarios funcionarios = db.Funcionarios.Find(id);
-
-            ViewBag.Departamentos = db.Departamento.ToList();
-
-            if (funcionarios == null)
+            Departamento departamento = db.Departamento.Find(id);
+            if (departamento == null)
             {
                 return HttpNotFound();
             }
-            return View(funcionarios);
+            return View(departamento);
         }
 
-        // POST: Funcionarios/Edit/5
+        // POST: Departamentos/Edit/5
         // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
         // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Func,Nome,Sobrenome,Email,RG,CPF,Endereco,Bairro,Cidade,UF,Departamento")] Funcionarios funcionarios)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Descricao")] Departamento departamento)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(funcionarios).State = EntityState.Modified;
+                db.Entry(departamento).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(funcionarios);
+            return View(departamento);
         }
 
-        // GET: Funcionarios/Delete/5
+        // GET: Departamentos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Funcionarios funcionarios = db.Funcionarios.Find(id);
-            if (funcionarios == null)
+            Departamento departamento = db.Departamento.Find(id);
+            if (departamento == null)
             {
                 return HttpNotFound();
             }
-            return View(funcionarios);
+            return View(departamento);
         }
 
-        // POST: Funcionarios/Delete/5
+        // POST: Departamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Funcionarios funcionarios = db.Funcionarios.Find(id);
-            db.Funcionarios.Remove(funcionarios);
+            Departamento departamento = db.Departamento.Find(id);
+            db.Departamento.Remove(departamento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

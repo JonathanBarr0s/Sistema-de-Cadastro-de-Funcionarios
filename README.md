@@ -496,3 +496,67 @@ Sem programar uma linha, o MVC criou as telas com as funções abaixo:
 | Excluir  | `/Funcionarios/Delete/1`  | Tela para confirmar a exclusão   |
 
 </details>
+
+### Seção 11: Tela de departamentos com Entity Framework no MVC C#
+
+<details>
+    <summary><strong>Criando a tela de departamentos</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19099272#learning-tools">**Link da Aula**</a>
+
+### 1. **Criar o Controller de Departamentos com Scaffold**
+
+Caminho:
+
+```
+Controllers > Adicionar > Novo Scaffold > MVC com Entity Framework
+```
+
+Configurações:
+
+* **Model class**: `Departamento`
+* **Data context**: `MeuBancoEntities`
+* **Nome do controller**: `DepartamentosController`
+
+🔁 Isso gerou automaticamente:
+
+* `DepartamentosController.cs`
+* Views:
+
+  * `Index.cshtml` (listar)
+  * `Create.cshtml` (inserir)
+  * `Edit.cshtml` (editar)
+  * `Delete.cshtml` (deletar)
+  * `Details.cshtml` (detalhes)
+
+## 🔗 2. **Ajustar o Menu para Navegação**
+
+No arquivo `_Layout.cshtml`, foi adicionado um novo item de menu:
+
+```html
+<li><a href="/Departamentos">Departamentos</a></li>
+```
+
+## 🐞 3. **Correção de Erro JavaScript no Layout**
+
+### Problema:
+
+Ao acessar páginas criadas pelo Scaffold, o layout reclamava da ausência de um script JS no final da página (`_Layout.cshtml`).
+
+### Solução:
+
+Criar um projeto temporário MVC padrão e copiar o seguinte bloco de **scripts**:
+
+```html
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+}
+```
+
+> Este trecho precisa estar **antes do fechamento do `</body>`**.
+
+</details>

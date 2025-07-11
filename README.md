@@ -560,3 +560,64 @@ Criar um projeto temporário MVC padrão e copiar o seguinte bloco de **scripts*
 > Este trecho precisa estar **antes do fechamento do `</body>`**.
 
 </details>
+
+### Seção 11: Finalizando o sistema
+
+<details>
+    <summary><strong>Alterando o Layout da tela de departamento</strong></summary>
+    <br />
+    <div align="left">
+
+<a href="https://www.udemy.com/course/aprenda-a-programar-em-net-mvc-e-sql/learn/lecture/19100548#learning-tools">**Link da Aula**</a>
+
+### 1. **Preencher DropDownList com Departamentos**
+
+No método `Create()` do **controller de Funcionários**:
+
+```csharp
+// Conexão com banco de dados
+var lista = db.Departamento.ToList();
+
+// Enviando para a View
+ViewBag.ListaDep = new SelectList(lista, "ID", "Nome");
+```
+
+### 2. **Renderizar o Select no HTML com Razor**
+
+No `Create.cshtml` de Funcionários:
+
+```cshtml
+<div class="form-group">
+    <label>Departamento</label>
+    @Html.DropDownList("DepartamentoID", ViewBag.ListaDep as SelectList, "Selecione...", new { @class = "form-control" })
+</div>
+```
+
+> 💡 Importante: o nome `"DepartamentoID"` deve bater com a **propriedade da classe `Funcionario`** que representa a chave estrangeira do departamento.
+
+### 3. **Melhorando o Visual do Select**
+
+Adição da classe Bootstrap no `DropDownList`:
+
+```cshtml
+new { @class = "form-control" }
+```
+
+### 4. **Alterando Imagem do Sistema**
+
+* Como **trocar a imagem de perfil** no layout:
+
+  1. Inspecionar elemento com botão direito (no navegador).
+  2. Localizar a pasta `img` e substituir o arquivo de imagem.
+  3. Adicionar uma nova imagem ao projeto usando:
+     `Adicionar > Item existente > Selecionar a imagem`.
+  4. Atualizar o HTML com o novo nome do arquivo (ex: `logo.png`).
+
+### 5. **Customizando o Footer**
+
+No `_Layout.cshtml`, alterou o rodapé:
+
+```html
+<p>Criado por Junior Santana | Sistema de Desenvolvimento</p>
+```
+</details>

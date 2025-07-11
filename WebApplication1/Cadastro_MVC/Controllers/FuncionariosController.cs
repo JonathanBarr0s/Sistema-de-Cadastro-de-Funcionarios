@@ -17,6 +17,7 @@ namespace Cadastro_MVC.Controllers
         // GET: Funcionarios
         public ActionResult Index()
         {
+            ViewBag.Departamentos = db.Departamento.ToList();
             return View(db.Funcionarios.ToList());
         }
 
@@ -38,6 +39,8 @@ namespace Cadastro_MVC.Controllers
         // GET: Funcionarios/Create
         public ActionResult Create()
         {
+            var lista = db.Departamento.ToList().OrderBy(x => x.Nome);
+            ViewBag.ListaDepto = lista;
             return View();
         }
 

@@ -28,9 +28,15 @@
                         <th></th>
                     </tr>
                 </thead>
+                @{
+                    var departamentos = ViewBag.Departamentos as List<Cadastro_MVC.Departamento>;
+                }
+
                 <tbody>
                     @foreach (var item in Model)
                     {
+                        var nomeDepto = departamentos.FirstOrDefault(d => d.Id == item.Departamento)?.Nome;
+
                         <tr>
                             <td>@Html.DisplayFor(modelItem => item.Nome)</td>
                             <td>@Html.DisplayFor(modelItem => item.Sobrenome)</td>
@@ -41,7 +47,7 @@
                             <td>@Html.DisplayFor(modelItem => item.Bairro)</td>
                             <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
                             <td>@Html.DisplayFor(modelItem => item.UF)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Departamento)</td>
+                            <td>@nomeDepto</td>
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.Id_Func })
                                 <a href="@Url.Action("Details", new { id = item.Id_Func })" class="btn btn-info btn-circle">
@@ -54,6 +60,7 @@
                         </tr>
                     }
                 </tbody>
+
             </table>
         </div>
     </div>

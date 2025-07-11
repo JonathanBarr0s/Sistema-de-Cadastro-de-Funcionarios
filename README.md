@@ -561,7 +561,7 @@ Criar um projeto temporário MVC padrão e copiar o seguinte bloco de **scripts*
 
 </details>
 
-### Seção 11: Finalizando o sistema
+### Seção 12: Finalizando o sistema
 
 <details>
     <summary><strong>Alterando o Layout da tela de departamento</strong></summary>

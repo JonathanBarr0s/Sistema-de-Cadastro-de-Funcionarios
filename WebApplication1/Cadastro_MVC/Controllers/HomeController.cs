@@ -8,8 +8,11 @@ namespace Cadastro_MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private MeuBanco01 db = new MeuBanco01();
         public ActionResult Index()
         {
+            ViewBag.QtdeDepartamentos = db.Departamento.Count();
+            ViewBag.QtdeFuncionarios = db.Funcionarios.Count();
             return View();
         }
 

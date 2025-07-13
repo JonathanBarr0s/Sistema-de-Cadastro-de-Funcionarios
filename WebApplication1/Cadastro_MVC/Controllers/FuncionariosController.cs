@@ -18,7 +18,7 @@ namespace Cadastro_MVC.Controllers
         public ActionResult Index()
         {
             ViewBag.Departamentos = db.Departamento.ToList();
-            return View(db.Funcionarios.ToList());
+            return View(db.Funcionarios.ToList().OrderBy(x => x.Nome));
         }
 
         // GET: Funcionarios/Details/5
@@ -29,6 +29,7 @@ namespace Cadastro_MVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Funcionarios funcionarios = db.Funcionarios.Find(id);
+            ViewBag.Departamentos = db.Departamento.ToList();
             if (funcionarios == null)
             {
                 return HttpNotFound();
@@ -104,6 +105,7 @@ namespace Cadastro_MVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Funcionarios funcionarios = db.Funcionarios.Find(id);
+            ViewBag.Departamentos = db.Departamento.ToList();
             if (funcionarios == null)
             {
                 return HttpNotFound();

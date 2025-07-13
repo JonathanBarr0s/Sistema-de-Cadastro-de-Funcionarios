@@ -1,19 +1,18 @@
 ﻿@model Cadastro_MVC.Departamento
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Deletar Departamento";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>@ViewBag.Title</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h4>Tem certeza que deseja excluir o Departamento?</h4>
 <div>
-    <h4>Departamento</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome:
         </dt>
 
         <dd>
@@ -21,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
+            Descrição:
         </dt>
 
         <dd>
@@ -30,12 +29,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-group">
+            <a href="@Url.Action("Index", "Departamentos")" class="btn btn-secondary">Voltar</a>
+            <input type="submit" value="Deletar" class="btn btn-primary ml-2" />
         </div>
     }
 </div>

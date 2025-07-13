@@ -1,18 +1,19 @@
 ﻿@model Cadastro_MVC.Departamento
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Departamento";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
+
+<br />
 
 <div>
-    <h4>Departamento</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome:
         </dt>
 
         <dd>
@@ -20,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
+            Descrição:
         </dt>
 
         <dd>
@@ -29,7 +30,8 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-group">
+    <a href="@Url.Action("Index", "Departamentos")" class="btn btn-secondary">Voltar</a>
+    <a href="@Url.Action("Edit", "Departamentos", new { id = Model.Id })" class="btn btn-secondary">Editar</a>
+</div>

@@ -17,7 +17,7 @@ namespace Cadastro_MVC.Controllers
         // GET: Departamentos
         public ActionResult Index()
         {
-            return View(db.Departamento.ToList());
+            return View(db.Departamento.ToList().OrderBy(x => x.Nome));
         }
 
         // GET: Departamentos/Details/5

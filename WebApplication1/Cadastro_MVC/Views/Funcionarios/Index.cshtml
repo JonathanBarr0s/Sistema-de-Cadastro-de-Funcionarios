@@ -5,63 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
+
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
         <h6 class="m-0 font-weight-bold text-primary">@ViewBag.Title</h6>
+        @Html.ActionLink("Adicionar", "Create", null, new { @class = "btn btn-primary" })
     </div>
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Nome)</th>
-                        <th>@Html.DisplayNameFor(model => model.Sobrenome)</th>
-                        <th>@Html.DisplayNameFor(model => model.Email)</th>
-                        <th>@Html.DisplayNameFor(model => model.RG)</th>
-                        <th>@Html.DisplayNameFor(model => model.CPF)</th>
-                        <th>@Html.DisplayNameFor(model => model.Endereco)</th>
-                        <th>@Html.DisplayNameFor(model => model.Bairro)</th>
-                        <th>@Html.DisplayNameFor(model => model.Cidade)</th>
-                        <th>@Html.DisplayNameFor(model => model.UF)</th>
-                        <th>@Html.DisplayNameFor(model => model.Departamento)</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                @{
-                    var departamentos = ViewBag.Departamentos as List<Cadastro_MVC.Departamento>;
-                }
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        var nomeDepto = departamentos.FirstOrDefault(d => d.Id == item.Departamento)?.Nome;
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.RG)</th>
+            <th>@Html.DisplayNameFor(model => model.CPF)</th>
+            <th>@Html.DisplayNameFor(model => model.Endereco)</th>
+            <th>@Html.DisplayNameFor(model => model.Bairro)</th>
+            <th>@Html.DisplayNameFor(model => model.Cidade)</th>
+            <th>@Html.DisplayNameFor(model => model.UF)</th>
+            <th>@Html.DisplayNameFor(model => model.Departamento)</th>
+            <th></th>
+        </tr>
+        @{
+            var departamentos = ViewBag.Departamentos as List<Cadastro_MVC.Departamento>;
+        }
 
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Sobrenome)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                            <td>@Html.DisplayFor(modelItem => item.RG)</td>
-                            <td>@Html.DisplayFor(modelItem => item.CPF)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Endereco)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Bairro)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
-                            <td>@Html.DisplayFor(modelItem => item.UF)</td>
-                            <td>@nomeDepto</td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Func })
-                                <a href="@Url.Action("Details", new { id = item.Id_Func })" class="btn btn-info btn-circle">
-                                    <i class="fas fa-info-circle"></i>
-                                </a>
-                                <a href="@Url.Action("Delete", new { id = item.Id_Func })" class="btn btn-danger btn-circle">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
+        @foreach (var item in Model)
+        {
+            var nomeDepto = departamentos.FirstOrDefault(d => d.Id == item.Departamento)?.Nome;
 
-            </table>
-        </div>
-    </div>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome) @Html.DisplayFor(modelItem => item.Sobrenome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.RG)</td>
+                <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                <td>@Html.DisplayFor(modelItem => item.Endereco)</td>
+                <td>@Html.DisplayFor(modelItem => item.Bairro)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
+                <td>@Html.DisplayFor(modelItem => item.UF)</td>
+                <td>@nomeDepto</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.Id_Func })" class="btn btn-secondary btn-circle">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.Id_Func })" class="btn btn-info btn-circle">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.Id_Func })" class="btn btn-danger btn-circle">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </table>
 </div>

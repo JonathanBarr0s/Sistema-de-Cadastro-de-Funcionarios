@@ -1,18 +1,18 @@
 ﻿@model Cadastro_MVC.Funcionarios
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Editar Funcionário";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
+
+<br />
 
 <div>
-    <h4>Funcionarios</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome:
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sobrenome)
+            Sobrenome:
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            Email:
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RG)
+            RG:
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CPF)
+            CPF:
         </dt>
 
         <dd>
@@ -52,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Endereco)
+            Endereço:
         </dt>
 
         <dd>
@@ -60,7 +60,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Bairro)
+            Bairro:
         </dt>
 
         <dd>
@@ -68,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Cidade)
+            Cidade:
         </dt>
 
         <dd>
@@ -76,7 +76,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UF)
+            Estado:
         </dt>
 
         <dd>
@@ -84,16 +84,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Departamento)
+            Departamento:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Departamento)
+            @{
+                var departamentos = ViewBag.Departamentos as List<Cadastro_MVC.Departamento>;
+                var departamento = departamentos?.FirstOrDefault(d => d.Id == Model.Departamento);
+                @departamento.Nome
+            }
         </dd>
+
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Func }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="form-group">
+    <a href="@Url.Action("Index", "Funcionarios")" class="btn btn-secondary">Voltar</a>
+    <a href="@Url.Action("Edit", "Funcionarios", new { id = Model.Id_Func })" class="btn btn-secondary">Editar</a>
+</div>
